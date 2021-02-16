@@ -1,0 +1,25 @@
+<body>
+  <div class="sr-root">
+    <div class="sr-main">
+      <header class="sr-header">
+        <div class="sr-header__logo"></div>
+      </header>
+      <div class="sr-payment-summary payment-view">
+        <h1 class="order-amount">
+          Porfavor inicie sesión en Dili para configurar su cuenta de vendedor
+        </h1>
+      </div>
+      <div *ngIf="loading">
+        <p>Redirigiendo...</p>
+        <div class="loader"></div>
+      </div>
+      <div *ngIf="auth.user | async as user; else showLogin">
+        <p>¡Bienvenido {{ user.displayName }}!</p>
+        <button (click)="logout()">Logout</button>
+      </div>
+      <ng-template #showLogin>
+        <button (click)="login()">Iniciar sesión con Google</button>
+      </ng-template>
+    </div>
+  </div>
+</body>

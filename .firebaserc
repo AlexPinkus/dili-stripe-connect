@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "dilitest-94b7c": {
+      "hosting": {
+        "dili-stripe-connect": [
+          "dilitest-94b7c"
+        ]
+      }
+    }
+  }
+}
