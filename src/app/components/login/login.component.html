@@ -18,7 +18,30 @@
         <button (click)="logout()">Logout</button>
       </div>
       <ng-template #showLogin>
-        <button (click)="login()">Iniciar sesión con Google</button>
+        <form [formGroup]="loginForm">
+          <div>
+            <label>Correo:</label>
+            <input type="text" formControlName="email" required />
+            <div class="invalid-feedback">
+              {{ errorMessage }}
+            </div>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)">
+              <div *ngIf="email.errors.required" class="invalid-feedback">
+                Campo requerido.
+              </div>
+              <div *ngIf="email.errors.email" class="invalid-feedback">
+                Correo electrónico inválido.
+              </div>
+            </div>
+          </div>
+          <br />
+          <div>
+            <label>Contraseña:</label>
+            <input type="password" formControlName="password" required />
+          </div>
+          <br />
+          <button formaction (click)="login()">Iniciar sesión</button>
+        </form>
       </ng-template>
     </div>
   </div>

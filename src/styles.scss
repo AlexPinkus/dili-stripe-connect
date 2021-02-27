@@ -126,8 +126,22 @@ input[type="text"] {
   appearance: none;
   color: #32325d;
 }
+input[type="password"] {
+  border: 1px solid var(--gray-border);
+  border-radius: var(--radius);
+  padding: 5px 12px;
+  height: 44px;
+  width: 100%;
+  transition: box-shadow 0.2s ease;
+  background: white;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  color: #32325d;
+}
 .sr-input:focus,
 input[type="text"]:focus,
+input[type="password"]:focus,
 button:focus,
 .focused {
   box-shadow: 0 0 0 1px rgba(50, 151, 211, 0.3), 0 1px 1px 0 rgba(0, 0, 0, 0.07),
@@ -137,6 +151,9 @@ button:focus,
 }
 .sr-input::placeholder,
 input[type="text"]::placeholder {
+  color: var(--gray-light);
+}
+input[type="password"]::placeholder {
   color: var(--gray-light);
 }
 
